@@ -1,4 +1,4 @@
-# Competitive Landscape Analysis of Indonesian Ride-Hailing Apps Through Google Play Store Reviews
+# Competitive Landscape Analysis of Indonesian Online Transportation Apps Through Google Play Store Reviews
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0%2B-lightgrey.svg)
