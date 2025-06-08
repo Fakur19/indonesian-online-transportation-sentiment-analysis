@@ -93,7 +93,7 @@ Across all four platforms, **Customer Service** was identified as the aspect wit
 
 This project can be reproduced in two ways.
 
-### Option 1: Using the Provided Dataset (Recommended)
+### Option 1: Using the Provided Dataset (It's Sample Dataset)
 This method allows you to run the analysis notebook directly without scraping the data again.
 
 1.  **Clone the repository:**
