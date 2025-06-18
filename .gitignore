@@ -1,6 +1,8 @@
 # Data Files (ignore large or raw data)
 data/*.csv
 output/*.csv
+app_reviews_cleaned.parquet
+app_reviews.parquet
 
 # EXCEPT this
 !data/app_reviews_sample.csv
@@ -12,6 +14,9 @@ venv/
 config.ini
 secrets.json
 credentials.py
+
+# Streamlit secrets should NEVER be committed
+.streamlit/secrets.toml
 
 # Jupyter Notebook Files
 .ipynb_checkpoints/

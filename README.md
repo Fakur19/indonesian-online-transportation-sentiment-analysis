@@ -1,13 +1,27 @@
 # Competitive Landscape Analysis of Indonesian Online Transportation Apps Through Google Play Store Reviews
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.13%2B-blue.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0%2B-lightgrey.svg)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931A.svg?style=flat&logo=scikit-learn&logoColor=white) 
+![NLTK](https://img.shields.io/badge/NLTK-2C5C8A.svg?style=flat&logo=nltk&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-red.svg)
 
 ## Project Overview
 
-This project presents an in-depth sentiment analysis of the leading ride-hailing applications in Indonesia: **Gojek, Grab, Maxim, and inDrive**. By leveraging a massive dataset of over 1.3 million user reviews from the Google Play Store (spanning from 2021 to 2025), this analysis aims to uncover the public's perception, identify key drivers of customer satisfaction and dissatisfaction, and map out the competitive landscape of this dynamic market.
+This project presents an in-depth sentiment analysis of the leading ride-hailing applications in Indonesia: **Gojek, Grab, Maxim, and inDrive**. By leveraging a massive dataset of over 1 million user reviews from the Google Play Store (spanning from 2022 to 2025), this analysis aims to uncover the public's perception, identify key drivers of customer satisfaction and dissatisfaction, and map out the competitive landscape of this dynamic market.
 
-The primary goal is to move beyond simple sentiment classification and extract actionable business insights through various analytical techniques, including time-series analysis, feature importance analysis, and aspect-based sentiment analysis (ABSA).
+The primary goal is to move beyond simple sentiment classification and extract actionable business insights through various analytical techniques, which are presented in both a Jupyter Notebook and an interactive Streamlit dashboard.
+
+---
+
+## 🚀 Interactive Dashboard
+
+To make the findings of this analysis more accessible and explorable, an interactive web dashboard has been developed using Streamlit. You can interact with the charts, filter by application, and explore the data yourself.
+
+**[➡️ Click here to access the live dashboard](https://indonesian-online-transportation.streamlit.app/)**
+![alt text](img/ss.png)
+
+![Dashboard Preview](img/ss2.png) 
 
 ---
 
@@ -25,8 +39,8 @@ This analysis seeks to answer several critical business questions:
 
 * **Source:** Google Play Store
 * **Applications Analyzed:** Gojek, Grab, Maxim, inDrive
-* **Total Reviews:** ~1.4 million
-* **Time Range:** January 2021 - June 2025
+* **Total Reviews:** ~1 million
+* **Time Range:** January 2022 - June 2025
 * **Language:** Indonesian
 
 ---
@@ -35,55 +49,34 @@ This analysis seeks to answer several critical business questions:
 
 This project follows a structured, end-to-end data analysis workflow:
 
-1.  **Data Collection:** Scraped over 1.3 million user reviews for the four target applications using the `google-play-scraper` library.
-2.  **Data Preprocessing & Cleaning:** Performed extensive text cleaning, which included:
-    * Lowercasing text (case folding)
-    * Removing punctuation, numbers, emojis, and special characters
-    * Normalizing Indonesian slang and informal words to their standard form
-    * Removing common Indonesian stopwords to reduce noise.
-3.  **Exploratory Data Analysis (EDA):** Investigated the dataset to uncover initial patterns through:
-    * **Distribution Analysis:** Comparing review volume and time range for each app.
-    * **Sentiment Distribution:** Visualizing the proportion of positive and negative reviews.
-    * **Time-Series Analysis:** Analyzing trends in review volume and sentiment over time.
-4.  **Sentiment Classification Modeling:**
-    * Built a baseline classification model using a **TF-IDF Vectorizer** and **Logistic Regression** pipeline.
-    * The model achieved a robust **accuracy of 93%**, establishing a strong benchmark for sentiment classification.
+1.  **Data Collection:** Scraped over 1 million user reviews for the four target applications using the `google-play-scraper` library.
+2.  **Data Preprocessing & Cleaning:** Performed extensive text cleaning, including slang normalization and stopword removal.
+3.  **Exploratory Data Analysis (EDA):** Investigated the dataset to uncover initial patterns through distribution, sentiment, and time-series analysis.
+4.  **Sentiment Classification Modeling:** Built a baseline classification model using a **TF-IDF Vectorizer** and **Logistic Regression** pipeline, achieving a robust **accuracy of 93%**.
 5.  **In-depth Analysis:**
-    * **Feature Importance Analysis:** Extracted the most influential keywords (coefficients) from the trained model to understand what drives positive and negative sentiment for each app.
-    * **Aspect-Based Sentiment Analysis (ABSA):** Categorized reviews into key business aspects (Application, Price, Service, Driver, Customer Service) to perform a granular, head-to-head comparison of each app's perceived strengths and weaknesses.
+    * **Feature Importance Analysis:** Extracted the most influential keywords for each app.
+    * **Aspect-Based Sentiment Analysis (ABSA):** Categorized reviews into key business aspects to perform a granular, head-to-head comparison.
+6.  **Dashboard Development:** Created an interactive dashboard with **Streamlit** and **Plotly** to present the findings in an accessible way.
 
 ---
 
 ## Key Findings & Insights
 
-### 1. Market Overview: Positive but Competitive
-- The overall market sentiment is overwhelmingly positive (~80%), but a significant volume of negative reviews (~270,000) provides a rich source for identifying customer pain points.
-- **Maxim** consistently emerges as the leader in overall positive sentiment, closely followed by **Gojek** and **Grab**.
-
-### 2. Time-Series Trends: A Story of Consistency vs. Volatility
-- **Maxim** maintains the most stable and highest sentiment rating throughout the entire 2021-2025 period.
-- **Gojek and Grab** are locked in a tight race, with their sentiment trends being more volatile and frequently crossing over, likely reflecting the impact of price wars or service updates.
-- **inDrive** shows the most volatility, indicating a less stable user experience, but has been on a positive recovery trend since early 2024.
-
-### 3. Core Strengths and Weaknesses (Feature & Aspect Analysis)
-
 | Application | Top Strength(s) | Top Weakness(es) |
 | :--- | :--- | :--- |
-| **Gojek** | **Functionality & Utility** (highly valued as a "helpful" and "easy-to-use" super-app) | **Application Performance** (bugs, errors) & **Customer Service** |
-| **Grab** | **Service Reliability** & emotional appreciation ("best", "thanks") | **Price Perception** & **Customer Service** |
-| **Maxim** | **Price (Affordability)** & **Driver Conduct** (perceived as friendly and patient) | Relatively few weaknesses, maintaining high sentiment across most aspects. |
-| **inDrive** | **Price (Affordability)** due to its bargaining model | **Driver Conduct** & **Customer Service** |
-
-### 4. The Universal Pain Point: Customer Service
-Across all four platforms, **Customer Service** was identified as the aspect with the highest proportion of negative sentiment. This represents a major opportunity area for any player who can significantly improve their complaint handling and user support processes.
+| **Gojek** | **Functionality & Utility** | **Application Performance** & **Customer Service** |
+| **Grab** | **Service Reliability** & emotional appreciation | **Price Perception** & **Customer Service** |
+| **Maxim** | **Price (Affordability)** & **Driver Conduct** | Relatively few weaknesses. |
+| **inDrive** | **Price (Affordability)** | **Driver Conduct** & **Customer Service** |
 
 ---
 
 ## Tools and Libraries
 
 * **Data Manipulation & Analysis:** Pandas, NumPy
-* **Data Visualization:** Matplotlib, Seaborn, WordCloud
-* **Machine Learning & NLP:** Scikit-learn (TfidfVectorizer, LogisticRegression), NLTK
+* **Data Visualization:** Matplotlib, Seaborn, **Plotly**
+* **Interactive Dashboard:** **Streamlit**
+* **Machine Learning & NLP:** Scikit-learn, NLTK
 * **Data Collection:** google-play-scraper
 * **Development Environment:** Jupyter Notebook
 
@@ -91,14 +84,20 @@ Across all four platforms, **Customer Service** was identified as the aspect wit
 
 ## How to Run This Project
 
-This project can be reproduced in two ways.
+This project can be explored in several ways:
 
-### Option 1: Using the Provided Dataset (It's Sample Dataset)
-This method allows you to run the analysis notebook directly without scraping the data again.
+### Option 1: View the Interactive Dashboard (Recommended)
+The easiest way to explore the project's findings is through the live Streamlit dashboard.
+
+**[➡️ Click here to access the live dashboard](https://indonesian-online-transportation.streamlit.app/)**
+
+
+### Option 2: Run the Streamlit App Locally
+To run the interactive dashboard on your own machine.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Fakur19/indonesian-online-transportation-sentiment-analysis.git
+    git clone [https://github.com/Fakur19/indonesian-online-transportation-sentiment-analysis.git](https://github.com/Fakur19/indonesian-online-transportation-sentiment-analysis.git)
     cd indonesian-online-transportation-sentiment-analysis
     ```
 2.  **Set up a virtual environment:**
@@ -110,25 +109,27 @@ This method allows you to run the analysis notebook directly without scraping th
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Run the Jupyter Notebook:**
-    * Launch Jupyter: `jupyter notebook`
-    * Open the main analysis notebook (e.g., `sentiment-analysis.ipynb`) and run the cells.
-
-### Option 2: Scraping the Data from Scratch
-If you wish to collect the data yourself, you can use the provided `data-scrap.py` script.
-
-1.  **Follow steps 1-3** from Option 1 to set up the environment.
-2.  **Run the scraping script:**
+4.  **Run the data preprocessing script** (this only needs to be done once to generate the necessary files for the app):
     ```bash
-    python data-scrap.py
+    python preprocess_for_streamlit.py
     ```
-    *Note: This process can take a significant amount of time depending on the number of reviews and your internet connection.*
-3.  **Once the data is collected**, proceed with **step 4** from Option 1 to run the analysis notebook.
+5.  **Launch the Streamlit app:**
+    ```bash
+    streamlit run app.py
+    ```
+
+### Option 3: Run the Analysis Notebook
+This method allows you to review the code and analysis steps using the provided sample dataset.
+
+1.  Follow steps 1-3 from Option 2.
+2.  Launch Jupyter: `jupyter notebook`
+3.  Open the main analysis notebook (e.g., `sentiment-analysis.ipynb`) and run the cells.
 
 ---
 
 ## Future Work
 
-- **Expand Data Sources:** Incorporate reviews from the Apple App Store to create a more comprehensive market view.
-- **Advanced Modeling:** Implement and fine-tune advanced NLP models like **IndoBERT** to potentially improve classification accuracy and extract more nuanced insights.
-- **Topic Modeling:** Apply techniques like Latent Dirichlet Allocation (LDA) to automatically discover hidden topics within user complaints and praises.
+-   **Expand Data Sources:** Incorporate reviews from the Apple App Store.
+-   **Advanced Modeling:** Implement NLP models like IndoBERT for more nuanced insights.
+-   **Topic Modeling:** Apply techniques like LDA to automatically discover hidden topics.
+
